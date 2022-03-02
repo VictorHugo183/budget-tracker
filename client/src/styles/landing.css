@@ -1,0 +1,74 @@
+.landing-page{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+background: rgb(10,10,10);
+background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(49,67,91,1) 0%, rgba(37,54,74,1) 100%);
+color: #f5f5f5;
+  font-family: 'Bitter', serif;
+}
+
+.landing-page .logo{
+  min-width: 5%;
+  width: 100px;
+}
+
+.landing-page p{
+  font-size: 1.5rem;
+}
+
+.btn-login{
+  background: #009a9a;
+  color: #f5f5f5;
+  font-family: 'Bitter', serif;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  font-size: 1.3rem;
+  max-width: 25%;
+}
+.btn-login:hover{
+  background: #12717c;
+  color: #f5f5f5;
+}
+
+.landing-page footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 1rem;
+}
+
+.landing-page footer a {
+  text-decoration: none;
+  color: #f5f5f5;
+  opacity: 0.8;
+}
+
+.landing-page footer a:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 1200px){
+  .btn-login{
+    max-width: 60%;
+  }
+  .buttons-container{
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 600px){
+  .btn-login{
+    max-width: 80%;
+  }
+}
+@media (max-width: 400px){
+  .btn-login{
+    max-width: 100%;
+  }
+  .landing-page h1{
+    font-size: 1.5rem;
+  }.landing-page p{
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700&display=swap');
+
+.dashboard {
+  min-height: 69vh;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #393a3d;
+  color: #F5F5F5;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  font-family: 'Bitter', serif;
+}
+
+.dashboard h1, h2, p{
+  font-family: 'Bitter', serif;
+}
+
+.header h1{
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .header{
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+th, td{
+  padding-left: 1rem !important;
+  text-align: start;
+}
+
+.table>:not(:first-child) {
+  border-top: 0;
+}
+
+.dashboard .table-scroll-y{
+  display:block;
+}
+
+.dashboard .custom-scroll{
+  position: relative;
+  height: 20rem;
+  overflow: auto;
+}
+
+.dashboard .chart-container{
+  position: relative;
+  background: #f5f5f5;
+}
+
+.dashboard .chart-container .chart-heading{
+  margin-top: 2rem;
+  position: absolute;
+  top: -10;
+  left: 0;
+  right: 0;
+}
+
+.dashboard footer{
+  background: #393a3d;
+  color: #f5f5f5;
+  padding: 1.5rem 0;
+  user-select: none;
+  font-family: 'Bitter', serif;
+  font-size: 1rem;
+  letter-spacing: .125rem;
+}
+
+.dashboard footer a {
+  text-decoration: none;
+  color: #f5f5f5;
+  opacity: 0.8;
+}
+
+.dashboard footer a:hover {
+  opacity: 0.5;
+}
+
+thead{
+  background: #009879;
+  color: #fff;
+}
+.dashboard .table-responsive{
+  box-shadow: 0 10px 20px rgb(0 0 0 / 13%), 0 4px 6px rgb(0 0 0 / 17%);
+  border-bottom: 4px solid #009879;
+}
