@@ -5,6 +5,8 @@ import { Pie } from "react-chartjs-2";
 import logo from "../../budget-logo2.png";
 import "../../styles/dashboard.css"
 
+import {Navigate} from "react-router-dom";
+
 /* components */
 import InputExpense from "./expenses/InputExpense";
 import ListExpenses from "./expenses/ListExpenses";
@@ -58,6 +60,9 @@ const Dashboard = ({ setAuth }) => {
 
     } catch (error) {
       console.error(error.message)
+      return(
+      <Navigate to = "/" />
+      )
     }
   }
 
