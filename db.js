@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 /* connect our server to our database using the pg library */
 const Pool = require("pg").Pool;
 require('dotenv').config();
