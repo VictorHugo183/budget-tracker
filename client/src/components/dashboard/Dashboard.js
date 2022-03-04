@@ -32,7 +32,7 @@ const Dashboard = ({ setAuth }) => {
     try {
       const response = await fetch("/dashboard/", {
         method: "GET",
-        headers: { token: localStorage.token }
+        headers: {token: localStorage.token}
       });
       let parseRes = await response.json();
 
