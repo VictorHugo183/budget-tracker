@@ -23,4 +23,5 @@ module.exports = async (req,res, next) => {
     /* return res.status(403).json("Unauthorized Access"); */
     return res.sendFile(path.join(__dirname, "client/build/index.html"));
   }
+  next();
 }
