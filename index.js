@@ -10,7 +10,6 @@ const app = express();
 /* process.env.NODE_ENV => production or undefined */
 
 /* MIDDLEWARES: */
-
 if (process.env.NODE_ENV === "production"){
   //serve static content. import path, join the current directory name with the path to the build folder we want to serve.
   app.use(express.static(path.join(__dirname, "client/build")));

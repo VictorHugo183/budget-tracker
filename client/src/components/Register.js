@@ -25,7 +25,7 @@ const Register = ({setAuth}) => {
     try {
       const body = {email, password, name, budget};
 
-      const response = await fetch("http://localhost:5000/auth/register", {
+      const response = await fetch("/auth/register", {
         method: "POST",
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(body)
@@ -58,7 +58,7 @@ const Register = ({setAuth}) => {
     const bodyDesc = { email, password, name, budget };
 
     try {
-      const response = await fetch("http://localhost:5000/auth/register", {
+      const response = await fetch("/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bodyDesc)
@@ -117,18 +117,3 @@ const Register = ({setAuth}) => {
 }
 
 export default Register;
-
-/* 
-    <div className="container register">
-      <h1 className="text-center my-5">Budget Tracker</h1>
-      <form onSubmit={onSubmitForm}>
-      <h1 className="text-center">Register</h1>
-      <input type="email" name="email" placeholder="email" className="form-control my-3" value={email} onChange={e => onChange(e)}/>
-        <input type="password" name="password" placeholder="password" className="form-control my-3" value={password} onChange={e => onChange(e)}/>
-        <input type="text" name="name" placeholder="name" className="form-control my-3" value={name} onChange={e => onChange(e)}/>
-        <button className="btn btn-success">Register</button>
-        <Link to="/login" className="login-btn btn btn-primary">Login</Link>
-        <span className="btn btn-warning demo-btn" onClick={(e) => handleGuestLogin(e)}>Use demo account</span>
-      </form>
-    </div>
-*/

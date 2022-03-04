@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from "react-chartjs-2";
 import logo from "../../budget-logo2.png";
-import "../../styles/dashboard2.css"
+import "../../styles/dashboard.css"
 
 /* components */
 import InputExpense from "./expenses/InputExpense";
@@ -160,11 +160,11 @@ const Dashboard = ({ setAuth }) => {
               </div>
             </form>
             :
-            <div className="budget col-md alert alert-secondary p-3 d-flex align-items-center justify-content-between me-4">Budget: {budget}
+            <div className="budget col-md alert alert-secondary p-3 d-flex align-items-center justify-content-between me-md-4">Budget: {budget}
               <button className="btn btn-login" onClick={() => setBudgetEditable(true)}>Edit</button>
             </div>
           }
-          <div className="remaining col-md alert p-4 alert-success me-4">Remaining:
+          <div className="remaining col-md alert p-4 alert-success me-md-4">Remaining:
             <span className={budget - totalExpenses < 0 ? "ms-1 text-danger" : "ms-1 text-reset"}>
               {isNaN(totalExpenses) ? budget : (Math.round((budget - totalExpenses) * 100) / 100).toFixed(2)}
             </span>
@@ -185,7 +185,7 @@ const Dashboard = ({ setAuth }) => {
         </div>
         <div className="d-flex container justify-content-center">
           <div className="row">
-            <div className="col-xs-12 mt-5">
+            <div className="col-xs-12 mt-5 px-0">
               <Pie data={pieData} options={pieOptions} />
             </div>
           </div>

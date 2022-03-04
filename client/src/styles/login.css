@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 html, body{
   min-height: 100vh;
   background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(49,67,91,1) 0%, rgba(37,54,74,1) 100%);

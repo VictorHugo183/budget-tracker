@@ -22,7 +22,7 @@ const Login = ({ setAuth }) => {
     e.preventDefault();
     try {
       const body = {email, password}
-      const response = await fetch("http://localhost:5000/auth/login", {
+      const response = await fetch("/auth/login", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
@@ -57,7 +57,7 @@ const Login = ({ setAuth }) => {
     const bodyDesc = {email, password, name, budget};
 
     try {
-      const response = await fetch("http://localhost:5000/auth/register", {
+      const response = await fetch("/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bodyDesc)
@@ -113,19 +113,3 @@ const Login = ({ setAuth }) => {
 }
 
 export default Login;
-
-/* 
-      <div className="container login">
-        <h1 className="text-center py-5">Budget Tracker</h1>
-        <div className="container">
-          <form onSubmit={onSubmitForm}>
-            <h1 className="text-center">Login</h1>
-            <input type="email" name="email" placeholder="email" className="form-control my-3" value={email} onChange={e => onChange(e)} />
-            <input type="password" name="password" placeholder="password" className="form-control my-3" value={password} onChange={e => onChange(e)}/>
-            <button type="submit" className="btn btn-success">Log in</button>
-            <Link to="/register" className="register-btn btn btn-primary">Register</Link>
-            <span className="btn btn-warning demo-btn" onClick={(e) => handleGuestLogin(e)}>Use demo account</span>
-          </form>
-        </div>
-      </div>
-*/

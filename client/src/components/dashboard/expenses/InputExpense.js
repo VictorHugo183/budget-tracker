@@ -41,8 +41,6 @@ const InputExpense = ({ setExpensesChange }) => {
 
   return (
     <>
-{/*       <h2 className="mt-3">Add Expense</h2> */}
-
       <div className="row mt-3">
         <div className="col-sm">
           <form onSubmit={onSubmitForm}>
