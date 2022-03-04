@@ -1,3 +1,9 @@
+/* 
+This component is no longer used but I decided to leave it in the project for reference.
+The problem I was facing was since to the modal was placed inside the table it wasn't being rendered properly on mobile.
+My solution was to move this component's functionality to the ListExpenses component, where I could have the modal declared outside the table.
+*/
+
 import React, { useState } from "react";
 import { FaEdit } from 'react-icons/fa';
 

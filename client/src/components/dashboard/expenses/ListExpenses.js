@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import EditExpense from "./EditExpense";
+/* import EditExpense from "./EditExpense"; */
 import { FaTimesCircle } from 'react-icons/fa';
 
 import { FaEdit } from 'react-icons/fa';
