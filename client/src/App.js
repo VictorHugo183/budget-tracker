@@ -26,7 +26,7 @@ function App() {
     try {
       const response = await fetch("/auth/verify", {
         method: "POST",
-        headers: {token: localStorage.token}
+        headers: {"token": localStorage.token}
       });
       const parseRes = await response.json();
       
