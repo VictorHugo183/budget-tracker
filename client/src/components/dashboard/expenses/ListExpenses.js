@@ -30,7 +30,8 @@ const ListExpenses = ({ allExpenses, setExpensesChange }) => {
   return (
     <>
       <h2>Expenses:</h2>
-      <div className="table-responsive table-scroll-y custom-scroll">
+      {/* table-scroll-y cystom-scroll */}
+      <div className="table-responsive">
         {(expenses.length === 0 || expenses[0].expense_id === null) &&
         <p className="empty-table-header">Add a transaction to begin tracking your finances</p>
         }
