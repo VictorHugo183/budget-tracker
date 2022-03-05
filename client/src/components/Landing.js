@@ -4,7 +4,7 @@ import { toast } from "react-toastify"
 import "../styles/landing.css"
 import logo from "../../src/budget-logo2.png";
 
-const Landing = ({setAuth}) => {
+const Landing = ({ setAuth }) => {
 
   const handleGuestLogin = async (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const Landing = ({setAuth}) => {
 
       <div className=" mb-4 py-xs-2 py-md-5">
         <div className="container-fluid pt-5 text-center">
-          <img src={logo} alt="Logo" className="logo"/>
+          <img src={logo} alt="Logo" className="logo" />
           <h1 className="mt-2 display-5 fw-bold">Budget Tracker</h1>
           <p className="text-center">Keep track of your budget, manage transactions and visualise your expenses.</p>
         </div>
@@ -66,7 +66,7 @@ const Landing = ({setAuth}) => {
       </div>
 
       <footer className="text-center pb-1 pt-2">
-        Copyright &copy;2022 - Designed and Built By <a href="https://github.com/VictorHugo183" target="_blank" rel="noreferrer">Victor Nascimento</a>
+        Copyright &copy;2022 - Designed and Built By <a href="https://github.com/VictorHugo183/budget-tracker" target="_blank" rel="noreferrer">Victor Nascimento</a>
       </footer>
 
     </div>

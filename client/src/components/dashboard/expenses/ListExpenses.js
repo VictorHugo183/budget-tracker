@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-/* import EditExpense from "./EditExpense"; */
 import { FaTimesCircle } from 'react-icons/fa';
 
 import { FaEdit } from 'react-icons/fa';
@@ -13,8 +12,6 @@ const ListExpenses = ({ allExpenses, setExpensesChange }) => {
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
   const [target, setTarget] = useState("");
-
-  /* update */
 
   const updateDescription = async (e) => {
     e.preventDefault();
@@ -37,12 +34,11 @@ const ListExpenses = ({ allExpenses, setExpensesChange }) => {
     }
   }
 
-  /* delete todo function */
   const deleteExpense = async (id) => {
     try {
       const deletedExpense = await fetch(`/dashboard/expenses/${id}`, {
         method: "DELETE",
-        headers: {token : localStorage.token}
+        headers: { token: localStorage.token }
       });
       /* make sure the list refreshes when item is deleted, by returning all todo items except if they have the id of the deleted item*/
       setExpenses(expenses.filter(item => item.expense_id !== id));
@@ -63,7 +59,7 @@ const ListExpenses = ({ allExpenses, setExpensesChange }) => {
       {/* table-scroll-y cystom-scroll */}
       <div className="table-responsive table-scroll-y custom-scroll">
         {(expenses.length === 0 || expenses[0].expense_id === null) &&
-        <p className="empty-table-header">Add a transaction to begin tracking your finances</p>
+          <p className="empty-table-header">Add a transaction to begin tracking your finances</p>
         }
         <table className="table table-striped table-sm text-center mb-0">
           <thead className="">
@@ -77,16 +73,16 @@ const ListExpenses = ({ allExpenses, setExpensesChange }) => {
           </thead>
           <tbody>
             {(expenses.length !== 0 && expenses[0].expense_id !== null &&
-            expenses.map(item => (
-              <tr key={item.expense_id}>
-                <td>{item.description}</td>
-                <td>{item.amount}</td>
-                <td>{item.category}</td>
-                <td>{/* <EditExpense expense={item} setExpensesChange={setExpensesChange}/> */}
-                  <FaEdit role="button" className="" color="#f5f5f5" size="1.5rem" data-bs-toggle="modal" data-bs-target={`#id${target}`} onClick={() => { setTarget(item.expense_id); setDescription(item.description); setAmount(item.amount); setCategory(item.category);}} /></td>
-                <td><FaTimesCircle role="button" className="mt-1" size="1.5rem" color="#f94144" onClick={() => deleteExpense(item.expense_id)} /></td>
-              </tr>
-            ))) 
+              expenses.map(item => (
+                <tr key={item.expense_id}>
+                  <td>{item.description}</td>
+                  <td>{item.amount}</td>
+                  <td>{item.category}</td>
+                  <td>{/* <EditExpense expense={item} setExpensesChange={setExpensesChange}/> */}
+                    <FaEdit role="button" className="" color="#f5f5f5" size="1.5rem" data-bs-toggle="modal" data-bs-target={`#id${target}`} onClick={() => { setTarget(item.expense_id); setDescription(item.description); setAmount(item.amount); setCategory(item.category); }} /></td>
+                  <td><FaTimesCircle role="button" className="mt-1" size="1.5rem" color="#f94144" onClick={() => deleteExpense(item.expense_id)} /></td>
+                </tr>
+              )))
             }
           </tbody>
         </table>

@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import {Link} from "react-router-dom"
-import {toast} from "react-toastify";
+import React, { useState } from "react";
+import { Link } from "react-router-dom"
+import { toast } from "react-toastify";
 import logo from "../../src/budget-logo2.png";
 import "../styles/register.css";
 
-const Register = ({setAuth}) => {
+const Register = ({ setAuth }) => {
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -13,21 +13,21 @@ const Register = ({setAuth}) => {
     budget: 0
   })
 
-  const { email, password, name, budget} = inputs;
+  const { email, password, name, budget } = inputs;
 
   const onChange = (e) => {
-    setInputs({...inputs, [e.target.name] : e.target.value});
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
   }
 
   const onSubmitForm = async (e) => {
     /* prevents page refresh on submit */
     e.preventDefault();
     try {
-      const body = {email, password, name, budget};
+      const body = { email, password, name, budget };
 
       const response = await fetch("/auth/register", {
         method: "POST",
-        headers: {"Content-Type" : "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
       /* response will be a jwt token */
@@ -40,7 +40,7 @@ const Register = ({setAuth}) => {
       } else {
         setAuth(false);
         toast.error(parseRes);
-      }  
+      }
     } catch (error) {
       console.error(error.message);
     }

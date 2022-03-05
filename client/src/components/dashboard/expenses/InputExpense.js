@@ -9,7 +9,7 @@ const InputExpense = ({ setExpensesChange }) => {
   const onSubmitForm = async (e) => {
     /* prevent refresh */
     e.preventDefault();
-    /* prevent adding todo if input is empty */
+    /* prevent adding todo if input is empty or amount is too high */
     if (!description || !amount || !category || category === "" || amount > 99999999.99) {
       alert("Missing data or cost is too high");
       return
@@ -26,7 +26,7 @@ const InputExpense = ({ setExpensesChange }) => {
       });
 
       const parseRes = await response.json();
-      
+
       /* the change in expensesChange will trigger the Dashboard useEffect in order to update user info without needing to refresh.
       reset all fields on form submit. */
       setExpensesChange(true);

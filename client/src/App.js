@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from "react";
-import './App.css';
-import logo from "./budget-logo2.png";
 
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 

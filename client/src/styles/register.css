@@ -43,16 +43,18 @@
 }
 
 .register-page .input-container input{
+  -webkit-appearance: none;
   color: #f5f5f5 !important;
-  border:0;
+  border:none;
   border-bottom:1px solid #f5f5f5;  
-  background:transparent;
+  background:transparent !important;
   width:100%;
   padding:8px 0 5px 0;
   font-size:16px;
 }
 
 .register-page .input-container input:focus{
+  -webkit-appearance: none;
   border:none;	
  outline:none;
  border-bottom:1px solid #009a9a;

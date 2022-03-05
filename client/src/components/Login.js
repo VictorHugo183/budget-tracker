@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom"
-import {toast} from "react-toastify"
+import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 import "../styles/login.css";
 import logo from "../../src/budget-logo2.png";
 
@@ -11,35 +11,35 @@ const Login = ({ setAuth }) => {
     password: ""
   })
 
-  const {email, password} = inputs;
+  const { email, password } = inputs;
 
   const onChange = (e) => {
-    setInputs({...inputs, [e.target.name]: e.target.value})
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
   }
 
   const onSubmitForm = async (e) => {
     /* prevent page refresh */
     e.preventDefault();
     try {
-      const body = {email, password}
+      const body = { email, password }
       const response = await fetch("/auth/login", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
 
       /* parseRes contains the JWT object */
       const parseRes = await response.json();
 
-      if(parseRes.token){
+      if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
         toast.success("login successful");
-      } else{
+      } else {
         setAuth(false);
         toast.error(parseRes);
       }
-      
+
     } catch (error) {
       console.error(error.message);
     }
@@ -54,7 +54,7 @@ const Login = ({ setAuth }) => {
     const name = "GUEST_ACCOUNT";
     const password = "123456";
     const budget = 1500;
-    const bodyDesc = {email, password, name, budget};
+    const bodyDesc = { email, password, name, budget };
 
     try {
       const response = await fetch("/auth/register", {
@@ -73,7 +73,7 @@ const Login = ({ setAuth }) => {
         setAuth(false);
         toast.error(parseRes);
       }
-      
+
     } catch (error) {
       console.error(error.message);
     }
@@ -100,10 +100,10 @@ const Login = ({ setAuth }) => {
           </div>
           <button type="submit" className="btn btn-login">Log in</button>
           <p className="mt-4 text-start align-self-start">Don't have an account?
-          <Link to="/register" role="button" className="ms-2 me-2 fw-bold">Sign Up</Link>
+            <Link to="/register" role="button" className="ms-2 me-2 fw-bold">Sign Up</Link>
           </p>
           <p className="text-start align-self-start">Or
-          <span className="ms-2 fw-bold" role="button" onClick={(e) => handleGuestLogin(e)}>Try Demo</span>
+            <span className="ms-2 fw-bold" role="button" onClick={(e) => handleGuestLogin(e)}>Try Demo</span>
           </p>
         </form>
       </div>

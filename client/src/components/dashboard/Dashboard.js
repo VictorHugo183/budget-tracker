@@ -95,8 +95,8 @@ const Dashboard = ({ setAuth }) => {
           headers: myHeaders,
           body: JSON.stringify(bodyDesc)
         });
-/*      const parseRes = await response.json();
-        console.log(parseRes); */
+        /*      const parseRes = await response.json();
+                console.log(parseRes); */
 
       } catch (error) {
         console.error(error.message)
@@ -143,8 +143,8 @@ const Dashboard = ({ setAuth }) => {
     <div className="dashboard">
       <div className="header">
         <div className="d-flex">
-        <img src={logo} alt="Logo" className="logo" />
-        <h1 className="d-inline-block my-auto">Budget Tracker</h1>
+          <img src={logo} alt="Logo" className="logo" />
+          <h1 className="d-inline-block my-auto">Budget Tracker</h1>
         </div>
         <button className="btn btn-login" onClick={e => logout(e)}>Log out</button>
       </div>
@@ -193,7 +193,7 @@ const Dashboard = ({ setAuth }) => {
       </div>
 
       <footer className="text-center">
-        Copyright &copy;2022 - Designed and Built By <a href="https://github.com/VictorHugo183" target="_blank" rel="noreferrer">Victor Nascimento</a>
+        Copyright &copy;2022 - Designed and Built By <a href="https://github.com/VictorHugo183/budget-tracker" target="_blank" rel="noreferrer">Victor Nascimento</a>
       </footer>
 
     </div>
