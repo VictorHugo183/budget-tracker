@@ -5,10 +5,9 @@ const path = require("path");
 module.exports = async (req,res, next) => {
   const jwtToken = req.header("token");
 
-  if (!jwtToken) {
+/*   if (!jwtToken) {
     return res.status(403).json("No token");
-/*     return res.sendFile(path.join(__dirname, "client/build/index.html")); */
-  }
+  } */
   try {
     //check if jwt is valid, if it is it returns a payload we can use in our routes
     const payload = jwt.verify(jwtToken, process.env.jwtSecret)
