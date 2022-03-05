@@ -8,7 +8,7 @@ const app = express();
 /* Heroku environment variables: */
 /* process.env.PORT */
 /* process.env.NODE_ENV => production or undefined */
-
+app.use(express.static(path.join(__dirname, "client/build")));
 /* MIDDLEWARES: */
 if (process.env.NODE_ENV === "production"){
   //serve static content. import path, join the current directory name with the path to the build folder we want to serve.

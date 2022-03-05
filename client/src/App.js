@@ -23,11 +23,12 @@ function App() {
     setIsAuthenticated(boolean);
   }
 
-  async function isAuth() {
+  async function isAuth(token) {
+    if(!token) {setIsAuthenticated(false)}
     try {
       const response = await fetch("/auth/verify", {
         method: "POST",
-        headers: {"token": localStorage.token}
+        headers: {"token": token}
       });
       const parseRes = await response.json();
       
@@ -38,7 +39,9 @@ function App() {
   }
 
   useEffect(() => {
-    isAuth();
+    const token  = localStorage.getItem("token");
+    if(!token){setIsAuthenticated(false)}
+    else { isAuth(token);}
   },[]);
 
   return (
@@ -49,7 +52,7 @@ function App() {
             !isAuthenticated ? (
               <Landing setAuth={setAuth}/>
             ) : (
-              <Navigate to="/dashboard" />
+              <Navigate to="/main" />
             )
           }
           />
@@ -57,7 +60,7 @@ function App() {
             !isAuthenticated ? (
               <Login setAuth={setAuth}/> 
             ) : (
-              <Navigate to="/dashboard" />
+              <Navigate to="/main" />
             )
           }
           />
@@ -69,7 +72,7 @@ function App() {
             )
           }
           />
-          <Route path="/dashboard" element={
+          <Route path="/main" element={
             isAuthenticated ? (
               <Dashboard setAuth={setAuth}/> 
             ) : (

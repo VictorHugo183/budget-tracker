@@ -28,7 +28,7 @@ const Dashboard = ({ setAuth }) => {
 
   const remainingAmount = (budget - totalExpenses) >= 0 ? (Math.round((budget - totalExpenses) * 100) / 100).toFixed(2) : 0;
 
-  async function getProfile() {
+  const getProfile = async () => {
     try {
       const response = await fetch("/dashboard/", {
         method: "GET",
