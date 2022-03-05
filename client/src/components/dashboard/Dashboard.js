@@ -30,9 +30,12 @@ const Dashboard = ({ setAuth }) => {
 
   async function getProfile(token) {
     try {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("token", localStorage.token);
       const response = await fetch("/dashboard/", {
         method: "GET",
-        headers: {"token": token}
+        headers: myHeaders
       });
       let parseRes = await response.json();
 
@@ -60,6 +63,12 @@ const Dashboard = ({ setAuth }) => {
       console.error(error.message)
     }
   }
+
+  /* by default expensesChange is false, when we add new data with the InputExpense component we change it to true, that change triggers this useEffect which will update our profile data without needing to refresh, it then sets expensesChange to false again.*/
+  useEffect(() => {
+    getProfile();
+    setExpensesChange(false);
+  }, [expensesChange])
 
   /* stores previous value of budget, so that when change is applied, we only contact the API if the new value is different from the old one */
   const usePrevious = (value) => {
@@ -105,13 +114,6 @@ const Dashboard = ({ setAuth }) => {
     setAuth(false);
     toast.success("Logged out successfully")
   }
-
-  /* by default expensesChange is false, when we add new data with the InputExpense component we change it to true, that change triggers this useEffect which will update our profile data without needing to refresh, it then sets expensesChange to false again.*/
-  useEffect(() => {
-    const token = localStorage.token;
-    getProfile(token);
-    setExpensesChange(false);
-  }, [expensesChange])
 
   /* Configuring pie chart data */
   ChartJS.register(ArcElement, Tooltip, Legend);
