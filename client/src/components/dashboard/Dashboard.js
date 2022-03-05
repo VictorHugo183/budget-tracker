@@ -28,11 +28,11 @@ const Dashboard = ({ setAuth }) => {
 
   const remainingAmount = (budget - totalExpenses) >= 0 ? (Math.round((budget - totalExpenses) * 100) / 100).toFixed(2) : 0;
 
-  async function getProfile() {
+  async function getProfile(token) {
     try {
       const response = await fetch("/dashboard/", {
         method: "GET",
-        headers: {"token": localStorage.token}
+        headers: {"token": token}
       });
       let parseRes = await response.json();
 
@@ -108,7 +108,8 @@ const Dashboard = ({ setAuth }) => {
 
   /* by default expensesChange is false, when we add new data with the InputExpense component we change it to true, that change triggers this useEffect which will update our profile data without needing to refresh, it then sets expensesChange to false again.*/
   useEffect(() => {
-    getProfile();
+    const token = localStorage.token;
+    getProfile(token);
     setExpensesChange(false);
   }, [expensesChange])
 
