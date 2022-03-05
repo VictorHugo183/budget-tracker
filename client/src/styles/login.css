@@ -54,6 +54,8 @@ html, body{
 
 .login-page .input-container input{
   -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
   color: #f5f5f5 !important;
   border:none;
   border-bottom:1px solid #f5f5f5;  
@@ -65,9 +67,11 @@ html, body{
 
 .login-page .input-container input:focus{
   -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
   border:none;	
- outline:none;
- border-bottom:1px solid #009a9a;
+  outline:none;
+  border-bottom:1px solid #009a9a;
 }
 
 .login-page ::placeholder{
@@ -103,55 +107,3 @@ html, body{
     font-size: 1rem;
   }
 }
-
-
-
-/* OLD CSS */
-
-/* .login .container{
-  width: 100%;
-  display:flex;
-  justify-content: center;
-  align-items:center;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.login form{
-  display: flex;
-  flex-direction: column;
-  background: #eee;
-  padding: 4rem 12rem;
-  box-shadow: 0 0 1rem rgb(0 0 0 / 25%);
-  border-radius: 5px;
-}
-
-.login button{
-  justify-self: center;
-  align-self: center;
-}
-
-.login .register-btn{
-  text-align: center;
-  margin-top: 1rem;
-  justify-self: center;
-  align-self: center;
-}
-
-.login .demo-btn{
-    text-align: center;
-  margin-top: 1rem;
-    justify-self: center;
-  align-self: center;
-}
-
-.login a {
-  text-decoration: none;
-}
-.login a:hover {
-  text-decoration: none;
-} */
-
-/* DASHBOARD */
-
-
