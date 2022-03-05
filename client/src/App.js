@@ -40,8 +40,12 @@ function App() {
 
   useEffect(() => {
     const token  = localStorage.getItem("token");
-    if(!token){setIsAuthenticated(false)}
-    else { isAuth(token);}
+    if(!token){
+      setIsAuthenticated(false)
+    }
+    else { 
+      isAuth(token);
+    }
   },[]);
 
   return (
