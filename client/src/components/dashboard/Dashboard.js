@@ -28,14 +28,11 @@ const Dashboard = ({ setAuth }) => {
 
   const remainingAmount = (budget - totalExpenses) >= 0 ? (Math.round((budget - totalExpenses) * 100) / 100).toFixed(2) : 0;
 
-  async function getProfile(token) {
+  async function getProfile() {
     try {
-      const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      myHeaders.append("token", localStorage.token);
       const response = await fetch("/dashboard/", {
         method: "GET",
-        headers: myHeaders
+        headers: { token: localStorage.token }
       });
       let parseRes = await response.json();
 

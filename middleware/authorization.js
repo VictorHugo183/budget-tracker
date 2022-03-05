@@ -6,7 +6,7 @@ module.exports = async (req,res, next) => {
   const jwtToken = req.header("token");
 
   if (!jwtToken) {
-    res.status(403).json("No token");
+    return res.status(403).json("No token found");
   }
   try {
     //check if jwt is valid, if it is it returns a payload we can use in our routes
@@ -19,7 +19,7 @@ module.exports = async (req,res, next) => {
     
   } catch (error) {
     console.error(error.message);
-    res.status(403).json("Unauthorized Access");
+    return res.status(403).json("Unauthorized Access");
     /* return res.sendFile(path.join(__dirname, "client/build/index.html")); */
   }
 }
