@@ -6,7 +6,7 @@ module.exports = async (req,res, next) => {
   const jwtToken = req.header("token");
 
   if (!jwtToken) {
-    return res.status(403).json("Unauthorized Access");
+    return res.status(403).json("No token");
 /*     return res.sendFile(path.join(__dirname, "client/build/index.html")); */
   }
   try {
